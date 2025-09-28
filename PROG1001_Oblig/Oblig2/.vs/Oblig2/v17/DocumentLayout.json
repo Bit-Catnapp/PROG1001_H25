@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\danie\\Documents\\NTNU_H2025\\Programmering_H2025\\PROG1001_H25\\PROG1001_Oblig\\Oblig2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CCF507A1-7F46-4743-9F18-EF5E87DABE3D}|Oblig2.vcxproj|C:\\Users\\danie\\Documents\\NTNU_H2025\\Programmering_H2025\\PROG1001_H25\\PROG1001_Oblig\\Oblig2\\Main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CCF507A1-7F46-4743-9F18-EF5E87DABE3D}|Oblig2.vcxproj|solutionrelative:Main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 100,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "main.c",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\NTNU_H2025\\Programmering_H2025\\PROG1001_H25\\PROG1001_Oblig\\Oblig2\\main.c",
+              "RelativeDocumentMoniker": "main.c",
+              "ToolTip": "C:\\Users\\danie\\Documents\\NTNU_H2025\\Programmering_H2025\\PROG1001_H25\\PROG1001_Oblig\\Oblig2\\main.c",
+              "RelativeToolTip": "main.c",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAADYAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-09-24T06:47:54.309Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
