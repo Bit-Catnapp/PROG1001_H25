@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\danie\\Documents\\NTNU_H2025\\Programmering_H2025\\obliger\\Oblig1\\",
+  "WorkspaceRootPath": "C:\\Users\\danie\\Documents\\NTNU_H2025\\Programmering_H2025\\PROG1001_H25\\PROG1001_Oblig\\Oblig1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7A8CF5EB-0410-4650-B3E6-2DE6DE46D0D1}|Oblig1.vcxproj|C:\\Users\\danie\\Documents\\NTNU_H2025\\Programmering_H2025\\obliger\\Oblig1\\Main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{7A8CF5EB-0410-4650-B3E6-2DE6DE46D0D1}|Oblig1.vcxproj|C:\\Users\\danie\\Documents\\NTNU_H2025\\Programmering_H2025\\PROG1001_H25\\PROG1001_Oblig\\Oblig1\\Main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{7A8CF5EB-0410-4650-B3E6-2DE6DE46D0D1}|Oblig1.vcxproj|solutionrelative:Main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -20,11 +20,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Main.c",
-              "DocumentMoniker": "C:\\Users\\danie\\Documents\\NTNU_H2025\\Programmering_H2025\\obliger\\Oblig1\\Main.c",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\NTNU_H2025\\Programmering_H2025\\PROG1001_H25\\PROG1001_Oblig\\Oblig1\\Main.c",
               "RelativeDocumentMoniker": "Main.c",
-              "ToolTip": "C:\\Users\\danie\\Documents\\NTNU_H2025\\Programmering_H2025\\obliger\\Oblig1\\Main.c",
+              "ToolTip": "C:\\Users\\danie\\Documents\\NTNU_H2025\\Programmering_H2025\\PROG1001_H25\\PROG1001_Oblig\\Oblig1\\Main.c",
               "RelativeToolTip": "Main.c",
-              "ViewState": "AgIAANEAAAAAAAAAAAAgwN0AAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAAAGMAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2025-09-08T12:38:27.268Z",
               "EditorCaption": ""
