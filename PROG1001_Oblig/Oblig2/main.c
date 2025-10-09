@@ -22,7 +22,6 @@
 #include <ctype.h> //toupper
 #include <string.h> //strcpy,strcspn
 
-
 /**
 * @def MAXLANES
 * @brief Maximum number of lanes
@@ -48,34 +47,16 @@
 #define MAXSTRLEN 100 
 /** @}*/
 
-
-char laneDescription[MAXLANES][MAXSTRLEN] = { 0,0 }; // lane description 
-int laneLength[MAXLANES] = { 0 }; // lane length
-int lanePar[MAXLANES] = { 0 }; // lane Par
-bool laneOB[MAXLANES] = { 0 }; // lane OB
+///Global Variables
+char laneDescription[MAXLANES][MAXSTRLEN] = { 0,0 }; ///< lane description 
+int laneLength[MAXLANES] = { 0 }; ///< lane length
+int lanePar[MAXLANES] = { 0 }; ///< lane Par
+bool laneOB[MAXLANES] = { 0 }; ///< lane OB
 int numLanes = 0; // number of lanes
 
-
-/**
-* @def Run
-* @brief Runs the program
-* @return nothing
-*/
-void Run();
-
-/**
-* @def Add
-* @brief Adds a new lane
-* @return true or false
-*/
-void Add_Lane();
-
-/**
-* @def Display
-* @brief Displays all lanes
-* @return nothing
-*/
-void Display_Lane();
+///Declarations
+void Add_Lane(); // Declartion of Add_Lane
+void Display_Lane(); //Declaration of Display_Lane
 
 /**
 * @brief Executes the program
@@ -87,19 +68,16 @@ int main()
 	laneLength[0] = 62;
 	lanePar[0] = 3;
 	laneOB[0] = true;
-	strcpy_s(laneDescription[0], MAXSTRLEN, "Lane with a lot of trees and scrub");
+	strcpy_s(laneDescription[0], MAXSTRLEN,
+		"Lane with a lot of trees and scrub");
 
 	laneLength[1] = 94;
 	lanePar[1] = 3;
 	laneOB[1] = false;
-	strcpy_s(laneDescription[1], MAXSTRLEN, "Flat terrain thourgout the map");
+	strcpy_s(laneDescription[1], MAXSTRLEN,
+		"Flat terrain thourgout the map");
 	numLanes = 2;
 
-	Run();
-}
-
-void Run()
-{
 	char choice; // User choice for input
 	do // conditional logic in while loop
 	{
@@ -141,6 +119,11 @@ void Run()
 	} while (choice != 'Q');
 }
 
+/**
+* @def Add
+* @brief Adds a new lane
+* @return nothing
+*/
 void Add_Lane()
 {
 	/**
@@ -163,9 +146,10 @@ void Add_Lane()
 	char qLaneOB;
 	char qLaneDescription[MAXSTRLEN];
 
-	printf("How long is lane %i:", currentLane + 1); 
-	scanf_s("%d", &qLaneLength);
-	if (qLaneLength <= 0) // flag if length is less or equal to 0
+	printf("How long is lane %i: ", currentLane + 1); 
+	
+	// flag if length is less or equal to 0
+	if (!scanf_s(" %d", &qLaneLength) || qLaneLength <= 0) 
 	{
 		printf("Illegal argument..\nReturning\n\n");
 		while (getchar() != '\n');
@@ -175,8 +159,13 @@ void Add_Lane()
 	laneLength[currentLane] = qLaneLength; 
 
 	// Take input for lane Pars
-	scanf_s("%d", &qLanePar);
 	printf("Pars on the field. Choose a number bwteen (2-8):"); 
+	if (!scanf_s(" %d", &qLanePar))
+	{
+		printf("Invalid input. Returning...\n");
+		while (getchar() != '\n');
+		return;
+	}
 	if (MAXPARS < qLanePar) // flag if max Pars is overreached
 	{
 		printf("Max Pars, set to MAXPARS\n");
@@ -219,12 +208,16 @@ void Add_Lane()
 	printf("Lane %i added\n\n", currentLane); // confirm lane added
 }
 
+/**
+* @def Display
+* @brief Displays all lanes
+* @return nothing
+*/
 void Display_Lane()
 {
 	/**
 		* 1. Iterate over all arrays and retieve content
-		* 3. It then displays content
-		*
+		* 2. It then displays content
 	*/
 
 	int totNumPars = 0; // total number of Pars
@@ -234,12 +227,12 @@ void Display_Lane()
 		if (numLanes == 0) // flag if no lanes are available
 		{
 			printf("No lanes available\n\n");
-			continue; //skip empty lanes
+			return; //skip empty lanes
 		}
 		else if (laneLength[i] == 0) //flag if no data on lane
 		{
 			printf("No data on lane %d\n\n", i);
-			continue;
+			return;
 		}
 		printf("Lane \033[1;4m%d\033[0m:\n", i + 1);
 		printf("     Length: \033[1;4m%d meters\033[0m\n", laneLength[i]);
@@ -254,5 +247,6 @@ void Display_Lane()
 
 	printf("Summary\n");
 	printf("Total number of lanes: \033[1;4m%d\033[0m\n", numLanes);
-	printf("To get to Par, it requires number of throws: \033[1;4m%d\033[0m\n\n", totNumPars);
+	printf("To get to Par, it requires number of throws:\033[1;4m%d\033[0m\n\n",
+		totNumPars);
 }
