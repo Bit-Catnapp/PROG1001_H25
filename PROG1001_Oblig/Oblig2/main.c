@@ -109,14 +109,17 @@ int main()
 }
 
 /**
-* @def Add_Lane
-* @brief Displays all lanes
-* @param in_numLanes Pointer to number of lanes
-* @param in_laneLengt Pointer to lane lengths
-* @param in_lanePar Pointer to lane Pars
-* @param in_laneOB Pointer to lane OB
-* @param in_laneDescription Pointer to lane descriptions
-* @return void
+*
+* Creates a new lane by taking user input.
+* In the function, the user is prompted to enter details,
+* if alle details are filled correctly a new lane is created.
+* Else it fails and returns to the menu.
+* 
+* @param in_numLanes Pointer to number of lanes integer
+* @param in_laneLengt Pointer to lane lengths array of integers
+* @param in_lanePar Pointer to lane Pars array of integers
+* @param in_laneOB Pointer to lane OB array of booleans
+* @param in_laneDescription Pointer to lane descriptions of array of strings
 */
 void Add_Lane(int* in_numLanes, int* in_laneLengt,
 	int* in_lanePar, bool* in_laneOB,
@@ -196,14 +199,17 @@ void Add_Lane(int* in_numLanes, int* in_laneLengt,
 }
 
 /**
-* @def Display_Lane
-* @brief Displays all lanes
-* @param in_numLanes Pointer to number of lanes
-* @param in_laneLengt Pointer to lane lengths
-* @param in_lanePar Pointer to lane Pars
-* @param in_laneOB Pointer to lane OB
-* @param in_laneDescription Pointer to lane descriptions
-* @return void
+* 
+* Retrieving data from all lanes for displaying.
+* It takes pointers to all the relevant arrays and the number of lanes,
+* then iterates through each lane to print its details.
+* 
+* 
+* @param in_numLanes Pointer to number of lanes integer
+* @param in_laneLengt Pointer to lane lengths array of integers
+* @param in_lanePar Pointer to lane Pars array of integers
+* @param in_laneOB Pointer to lane OB array of booleans
+* @param in_laneDescription Pointer to lane descriptions of array of strings
 */
 void Display_Lane(int* in_numLanes, int* in_laneLengt, int* in_lanePar, bool* in_laneOB, char (*in_laneDescription)[MAXSTRLEN])
 {
