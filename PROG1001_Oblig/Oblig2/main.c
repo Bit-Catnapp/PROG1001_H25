@@ -52,8 +52,8 @@ int main()
 	int numLanes = 0; // number of lanes
 
 
-	
-    // Default values :
+
+	// Default values :
 	laneLength[0] = 62;
 	lanePar[0] = 3;
 	laneOB[0] = true;
@@ -87,7 +87,7 @@ int main()
 
 		switch (choice) /// steps into corresponding case
 		{
-		case 'A': 
+		case 'A':
 		{
 			Add_Lane(&numLanes, laneLength, lanePar, laneOB, laneDescription);
 			break;
@@ -114,7 +114,7 @@ int main()
 * In the function, the user is prompted to enter details,
 * if alle details are filled correctly a new lane is created.
 * Else it fails and returns to the menu.
-* 
+*
 * @param in_numLanes Pointer to number of lanes integer
 * @param in_laneLengt Pointer to lane lengths array of integers
 * @param in_lanePar Pointer to lane Pars array of integers
@@ -128,64 +128,58 @@ void Add_Lane(int* in_numLanes, int* in_laneLengt,
 	if (MAXLANES <= *in_numLanes) // is the maximum number of lanes reached?
 	{
 		printf("[LOG]:Max Number of lanes created\n");
-		return;
 	}
 
 	// Temporary variables for user input
 	int currentLane = *in_numLanes;
-	int qLaneLength = 0;
-	int qLanePar = 0;
+	int qLaneLength;
+	int qLanePar;
 	char qLaneOB;
 	char qLaneDescription[MAXSTRLEN];
 
-	printf("How long is lane %i: ", currentLane + 1);
-
-	/// Flag if length is less or equal to 0
-	if (!scanf_s(" %d", &qLaneLength) || qLaneLength <= 0)
+	// Take input for lane length
+	do 	/// Flag if length is less or equal to 0 or input fails
 	{
-		printf("Illegal argument..\nReturning\n\n");
+		printf("How long is lane %i: ", currentLane + 1);
 		while (getchar() != '\n');
-		return;
+	} while (scanf_s(" %d", &qLaneLength) != 1);
+
+	if (MAXLANES <= currentLane || qLaneLength >= 0) /// Flag if max lanes is
+		                                             /// -overreached or
+		                                             /// -length is valid
+	{
+		in_laneLengt[currentLane] = qLaneLength; // Update lane length,
+		                                         // -for current lane
 	}
-	in_laneLengt[currentLane] = qLaneLength; // Update lane length,
-	                                         // -for current lane
 
     // Take input for lane Pars
-	printf("Pars on the field. Choose a number bwteen (2-8):");
-	if (!scanf_s(" %d", &qLanePar)) /// Flag if invalid input
+	do 	/// Flag if Pars is less than 2 or input fails
 	{
-		printf("Invalid input. Returning...\n");
+		printf("Pars on the field. Choose a number bwteen (2-8):");
 		while (getchar() != '\n');
-		return;
-	}
+	} while (scanf_s(" %d", &qLanePar) != 1);
 	if (MAXPARS < qLanePar) /// Flag if max Pars is overreached
 	{
 		printf("Max Pars, set to MAXPARS\n");
 		qLanePar = MAXPARS;
 	}
-	if (qLanePar < 2) ///Flag if illegal argument
+	if (qLanePar > 2) /// Flag if Pars is valid
 	{
-		printf("Illegal argument..\nReturning\n\n");
-		while (getchar() != '\n');
-		return;
+		in_lanePar[currentLane] = qLanePar; // Update lane Pars for current lane
 	}
-	in_lanePar[currentLane] = qLanePar; // Update lane Pars for current lane
 
 	// Take input for lane OB
-	printf("Does the lane have OB (y = yes or n = no):");
-	while (getchar() != '\n');
-	scanf_s(" %c", &qLaneOB, 1);
-	qLaneOB = toupper(qLaneOB);
-	if (qLaneOB != 'Y' && qLaneOB != 'N') // Flag if illegal argument
+	do /// Flag if input is not y or n
 	{
-		printf("Illegal argument..\nReturning\n\n");
+		printf("Does the lane have OB (y = yes or n = no):");
+		scanf_s(" %c", &qLaneOB, 1);
 		while (getchar() != '\n');
-		return;
-	}
+		qLaneOB = toupper(qLaneOB);
+	} while (qLaneOB != 'Y' && qLaneOB != 'N');
 	in_laneOB[currentLane] = (qLaneOB == 'Y');	// Update lane OB for current lane
 
+	// Description
 	printf("Write a description:"); // Take input for lane description
-	while (getchar() != '\n');
 	fgets(qLaneDescription, MAXSTRLEN, stdin); // Read string with spaces
 
 	// Remove newline character from string "\n"
@@ -194,17 +188,18 @@ void Add_Lane(int* in_numLanes, int* in_laneLengt,
 	// Copy the content of qLaneDescription to laneDescription
 	strcpy_s(in_laneDescription[*in_numLanes], MAXSTRLEN, qLaneDescription);
 
-	in_numLanes++; // Increment number of lanes
-	printf("Lane %i added\n\n", currentLane); // Confirm lane added
+	(*in_numLanes)++; // Increment number of lanes
+	printf("Lane %i added\n\n", currentLane + 1); // Confirm lane added
+
 }
 
 /**
-* 
+*
 * Retrieving data from all lanes for displaying.
 * It takes pointers to all the relevant arrays and the number of lanes,
 * then iterates through each lane to print its details.
-* 
-* 
+*
+*
 * @param in_numLanes Pointer to number of lanes integer
 * @param in_laneLengt Pointer to lane lengths array of integers
 * @param in_lanePar Pointer to lane Pars array of integers
@@ -214,30 +209,31 @@ void Add_Lane(int* in_numLanes, int* in_laneLengt,
 void Display_Lane(int* in_numLanes, int* in_laneLengt, int* in_lanePar, bool* in_laneOB, char (*in_laneDescription)[MAXSTRLEN])
 {
 	int totNumPars = 0; // Total number of Pars
+	int i = 0;
 
-	for (int i = 0; i < *in_numLanes; i++) // Iterate through all lanes
+	if (*in_numLanes == 0) /// Flag if no lanes are available
 	{
-		if (*in_numLanes == 0) /// Flag if no lanes are available
-		{
-			printf("No lanes available\n\n");
-			return; 
-		}
-		else if (in_laneLengt[i] == 0) /// Flag if no data on lane
-		{
-			printf("No data on lane %d\n\n", i);
-			return;
-		}
+		printf("No lanes available\n\n");
+	}
+	if (in_laneLengt[i] == 0) /// Flag if no data on lane
+	{
+		printf("No data on lane %d\n\n", i);
+	}
+	do /// Iterate through all lanes only once
+	{
 		printf("Lane \033[1;4m%d\033[0m:\n", i + 1);
 		printf("     Length: \033[1;4m%d meters\033[0m\n", in_laneLengt[i]);
 		printf("     Pars: \033[1;4m%d\033[0m\n", in_lanePar[i]);
 		printf("     OB: %s\n", in_laneOB[i] ?
 			"\033[1;4m With \033[0m" : "\033[1;4m Without \033[0m");
 		if (in_laneDescription[i])
+		{
 			printf("     Description: \033[1;4m%s\033[0m\n\n",
 				in_laneDescription[i]);
-
+		}
+		i++;
 		totNumPars += in_lanePar[i]; // Sum up total number of Pars
-	}
+	} while (i != *in_numLanes);
 
 	printf("Summary\n");
 	printf("Total number of lanes: \033[1;4m%d\033[0m\n", *in_numLanes);
