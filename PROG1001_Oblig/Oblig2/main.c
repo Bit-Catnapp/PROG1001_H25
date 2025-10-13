@@ -127,7 +127,8 @@ void Add_Lane(int* in_numLanes, int* in_laneLengt,
 	int* in_lanePar, bool* in_laneOB,
 	char (*in_laneDescription)[MAXSTRLEN])
 {
-	if (MAXLANES <= *in_numLanes) // is the maximum number of lanes reached?
+	if (MAXLANES <= *in_numLanes) /// is the maximum
+		                          /// number of lanes reached?
 	{
 		printf("[LOG]:Max Number of lanes created\n");
 	}
