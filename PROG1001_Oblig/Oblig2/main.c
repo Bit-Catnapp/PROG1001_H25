@@ -45,7 +45,8 @@ void Display_Lane(int* in_numLanes, int* in_laneLengt,
 int main()
 {
 	// Internal Includes :
-	char laneDescription[MAXLANES][MAXSTRLEN] = { 0,0 }; // lane description 
+	char laneDescription[MAXLANES][MAXSTRLEN] = { 0,0 }; // lane 
+	                                                     //-description 
 	int laneLength[MAXLANES] = { 0 }; // lane length
 	int lanePar[MAXLANES] = { 0 }; // lane Par
 	bool laneOB[MAXLANES] = { 0 }; // lane OB
@@ -119,7 +120,8 @@ int main()
 * @param in_laneLengt Pointer to lane lengths array of integers
 * @param in_lanePar Pointer to lane Pars array of integers
 * @param in_laneOB Pointer to lane OB array of booleans
-* @param in_laneDescription Pointer to lane descriptions of array of strings
+* @param in_laneDescription Pointer to lane descriptions of array of
+*                           -strings
 */
 void Add_Lane(int* in_numLanes, int* in_laneLengt,
 	int* in_lanePar, bool* in_laneOB,
@@ -144,7 +146,8 @@ void Add_Lane(int* in_numLanes, int* in_laneLengt,
 		while (getchar() != '\n');
 	} while (scanf_s(" %d", &qLaneLength) != 1);
 
-	if (MAXLANES <= currentLane || qLaneLength >= 0) /// Flag if max lanes is
+	if (MAXLANES <= currentLane || qLaneLength >= 0) /// Flag if max
+		                                             /// -lanes is
 		                                             /// -overreached or
 		                                             /// -length is valid
 	{
@@ -176,7 +179,8 @@ void Add_Lane(int* in_numLanes, int* in_laneLengt,
 		while (getchar() != '\n');
 		qLaneOB = toupper(qLaneOB);
 	} while (qLaneOB != 'Y' && qLaneOB != 'N');
-	in_laneOB[currentLane] = (qLaneOB == 'Y');	// Update lane OB for current lane
+	in_laneOB[currentLane] = (qLaneOB == 'Y');	// Update lane OB for
+	                                            // -current lane
 
 	// Description
 	printf("Write a description:"); // Take input for lane description
@@ -204,8 +208,9 @@ void Add_Lane(int* in_numLanes, int* in_laneLengt,
 * @param in_laneLengt Pointer to lane lengths array of integers
 * @param in_lanePar Pointer to lane Pars array of integers
 * @param in_laneOB Pointer to lane OB array of booleans
-* @param in_laneDescription Pointer to lane descriptions of array of strings
-*/
+* @param in_laneDescription Pointer to lane descriptions of array of 
+*                           -strings
+**/
 void Display_Lane(int* in_numLanes, int* in_laneLengt, int* in_lanePar, bool* in_laneOB, char (*in_laneDescription)[MAXSTRLEN])
 {
 	int totNumPars = 0; // Total number of Pars
