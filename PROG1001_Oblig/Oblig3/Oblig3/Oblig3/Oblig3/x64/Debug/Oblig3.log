@@ -1,0 +1,6 @@
+﻿  main.c
+C:\Users\danie\Documents\NTNU_H2025\Programmering_H2025\PROG1001_H25\PROG1001_Oblig\Oblig3\Oblig3\Oblig3\main.c(41,44): warning C4013: 'gets' undefined; assuming extern returning int
+C:\Users\danie\Documents\NTNU_H2025\Programmering_H2025\PROG1001_H25\PROG1001_Oblig\Oblig3\Oblig3\Oblig3\main.c(95,1): warning C4716: 'sjekkVinner': must return a value
+C:\Users\danie\Documents\NTNU_H2025\Programmering_H2025\PROG1001_H25\PROG1001_Oblig\Oblig3\Oblig3\Oblig3\main.c(84,1): warning C4716: 'sjekkBrett': must return a value
+C:\Users\danie\Documents\NTNU_H2025\Programmering_H2025\PROG1001_H25\PROG1001_Oblig\Oblig3\Oblig3\Oblig3\main.c(151,1): warning C4716: 'spillSpillet': must return a value
+  Oblig3.vcxproj -> C:\Users\danie\Documents\NTNU_H2025\Programmering_H2025\PROG1001_H25\PROG1001_Oblig\Oblig3\Oblig3\Oblig3\x64\Debug\Oblig3.exe
